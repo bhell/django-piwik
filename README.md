@@ -1,4 +1,4 @@
-django-piwik - Application to include Piwik analytics to a Django site
+django-piwik - Application to add Piwik analytics to a Django site
 
 This app adds basic support for [Piwik web analytics](http://piwik.org/) to a Django web site:
 
