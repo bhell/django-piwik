@@ -12,4 +12,15 @@ This app adds basic support for [Piwik web analytics](http://piwik.org/) to a Dj
 - `{% load piwik_tags %}` in your base html template and add `{% piwik_tracking_code %}` either before the `<body>` closing tag, or in the `<head>`.
 - Done.
 
+Doing
+=====
+- [Tracking 404 errors](http://piwik.org/faq/how-to/#faq_60)
+- [Tracking eCommerce](http://piwik.org/docs/ecommerce-analytics/)
+
+TODO
+====
+- [Tracking goals](http://piwik.org/docs/tracking-goals-web-analytics/)
+- [Tracking search](http://piwik.org/docs/site-search/)
+
+
 Have fun. BSD licensed.

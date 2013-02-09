@@ -53,6 +53,7 @@ def piwik_tracking_404():
     context = _get_code()
     return context
 
+
 @register.inclusion_tag('tracking_order_confirm.html')
 def piwik_order_confirm():
     context = _get_code()
@@ -69,7 +70,8 @@ def piwik_order_confirm():
     #   .tax // 5.5 (optional) Tax amount
     #   .shipping // 4.5 (optional) Shipping amount
     #   .discount // (optional) Discount offered (set to false for unspecified parameter)
-    pass
+    return context
+
 
 @register.inclusion_tag('tracking_add_to_cart.html')
 def piwik_add_to_cart():
@@ -83,7 +85,8 @@ def piwik_add_to_cart():
     # cart
     #   .products (entire cart, same attributes as above)
     #   .amount // 15.5 (recommended) Cart amount
-    pass
+    return context
+
 
 @register.inclusion_tag('tracking_product_view.html')
 def piwik_product_view():
@@ -96,5 +99,5 @@ def piwik_product_view():
     #   .price
     # OR
     # categories (list of categories)
-    pass
+    return context
 
