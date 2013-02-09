@@ -7,6 +7,7 @@ document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/ja
 try {
 var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", {{ pkid }});
 {% block tracking_404 %}{% endblock %}
+{% block ecommerce %}{% endblock %}
 piwikTracker.trackPageView();
 piwikTracker.enableLinkTracking();
 } catch( err ) {}

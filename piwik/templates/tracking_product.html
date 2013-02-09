@@ -1,0 +1,15 @@
+{% extends "tracking_code.html" %}
+{% block ecommerce %}
+piwikTracker.setEcommerceView(
+{% if product %}
+  {{ product.sku }},
+  {% if product.name %}{{ product.name }}{% endif %},
+  {% if product.categories %}[{% for c in product.categories %}{{ c }},{% endfor %}]{% endif %},
+  {% if product.price %}{{ product.price }}{% endif %}
+{% else if categories %}
+  productSku = false,
+  productName = false,
+  category = [{% for c in categories %}{{ c }},{% endfor %}]
+{% endif %}
+);
+{% endblock %}

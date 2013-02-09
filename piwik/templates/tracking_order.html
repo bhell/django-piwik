@@ -1,0 +1,20 @@
+{% extends "tracking_code.html" %}
+{% block ecommerce %}
+{% for p in order.products %}
+piwikTracker.addEcommerceItem(
+  {{ p.sku }},
+  {% if p.name %}{{ p.name }},{% endif %}
+  {% if p.categories %}[{% for c in p.categories %}{{ c }},{% endfor %}],{% endif %}
+  {{ p.price }},
+  {% if p.quantity %}{{ p.quantity }}{% else %}1{% endif %}
+);
+{% endfor %}
+piwikTracker.trackEcommerceOrder(
+  {{ order.id }},
+  {{ order.revenue }},
+  {% if order.subtotal %}{{ order.subtotal }},{% endif %}
+  {% if order.tax %}{{ order.tax }},{% endif %}
+  {% if order.shipping %}{{ order.shipping }},{% endif %}
+  {% if order.discount %}{{ order.discount }}{% else %}false{% endif %}
+);
+{% endblock %}

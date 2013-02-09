@@ -53,3 +53,48 @@ def piwik_tracking_404():
     context = _get_code()
     return context
 
+@register.inclusion_tag('tracking_order_confirm.html')
+def piwik_order_confirm():
+    context = _get_code()
+    # order
+    #   .products
+    #      .sku // "9780786706211" (required) SKU: Product unique identifier
+    #      .name // "Endurance: Shackleton's Incredible Voyage" (optional) Product name
+    #      .categories (list) // "Adventure Books" (optional) Product category. You can also specify an array of up to 5 categories eg. ["Books", "New releases", "Biography"]
+    #      .price // 8.8 (recommended) Product price
+    #      .quantity // (optional, default to 1) Product quantity
+    #   .id // "A10000123" (required) Unique Order ID
+    #   .revenue // 35 (required) Order Revenue grand total (includes tax, shipping, and subtracted discount)
+    #   .subtotal // 30 (optional) Order sub total (excludes shipping)
+    #   .tax // 5.5 (optional) Tax amount
+    #   .shipping // 4.5 (optional) Shipping amount
+    #   .discount // (optional) Discount offered (set to false for unspecified parameter)
+    pass
+
+@register.inclusion_tag('tracking_add_to_cart.html')
+def piwik_add_to_cart():
+    context = _get_code()
+    # product (new product, optional)
+    #   .sku
+    #   .name
+    #   .categories (list)
+    #   .price
+    #   .quantity
+    # cart
+    #   .products (entire cart, same attributes as above)
+    #   .amount // 15.5 (recommended) Cart amount
+    pass
+
+@register.inclusion_tag('tracking_product_view.html')
+def piwik_product_view():
+    context = _get_code()
+    # EITHER
+    # product (new product, optional)
+    #   .sku
+    #   .name
+    #   .categories (list)
+    #   .price
+    # OR
+    # categories (list of categories)
+    pass
+
