@@ -1,0 +1,2 @@
+{% extends "tracking_code.html" %}
+{% block tracking_404 %}piwikTracker.setDocumentTitle('404/URL = '+String(document.location.pathname+document.location.search).replace(/\//g,"%2f") + '/From = ' + String(document.referrer).replace(/\//g,"%2f"));{% endblock %}

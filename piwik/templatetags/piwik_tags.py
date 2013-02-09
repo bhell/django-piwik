@@ -14,8 +14,8 @@ try:
 except AttributeError:
     pass
 
-@register.inclusion_tag('tracking_code.html')
-def piwik_tracking_code():
+
+def _get_code():
     if not track:
         error = _("Piwik not enabled in DEBUG mode. Set PIWIK_IN_DEBUG = True if really needed.")
     else:
@@ -37,5 +37,19 @@ def piwik_tracking_code():
             error = _("No site found with SITE_ID %d." % settings.SITE_ID)
         except AttributeError:
             error = _("Piwik relies upon sites framework. Set up a corresponding site first to use Piwik.")
-    return locals()
+    return {'error': error,
+            'pkbaseurl': pkbaseurl,
+            'pkid': pkid}
+
+
+@register.inclusion_tag('tracking_code.html')
+def piwik_tracking_code():
+    context = _get_code()
+    return context
+
+
+@register.inclusion_tag('tracking_404.html')
+def piwik_tracking_404():
+    context = _get_code()
+    return context
 

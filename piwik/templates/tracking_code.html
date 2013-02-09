@@ -1,13 +1,14 @@
+<!-- Piwik tracking code (http://piwik.org/) -->
 {% if error %}<!-- {{ error }} -->{% else %}
-<!-- Piwik -->
 <script type="text/javascript">
 var pkBaseURL = (("https:" == document.location.protocol) ? "https://{{ pkbaseurl }}" : "http://{{ pkbaseurl }}");
 document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
 </script><script type="text/javascript">
 try {
 var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", {{ pkid }});
+{% block tracking_404 %}{% endblock %}
 piwikTracker.trackPageView();
 piwikTracker.enableLinkTracking();
 } catch( err ) {}
 </script><noscript><p><img src="http://{{ pkbaseurl }}piwik.php?idsite={{ pkid }}" style="border:0" alt="" /></p></noscript>
-<!-- End Piwik Tracking Code -->{% endif %}
+{% endif %}<!-- End Piwik tracking code -->
