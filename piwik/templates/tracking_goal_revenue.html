@@ -1,0 +1,7 @@
+{% extends "tracking_code.html" %}
+{% block ecommerce %}
+piwikTracker.trackGoal(
+  {{ goalid }},
+  {{ revenue }}
+);
+{% endblock %}

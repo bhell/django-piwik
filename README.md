@@ -16,10 +16,10 @@ Doing
 =====
 - [Tracking 404 errors](http://piwik.org/faq/how-to/#faq_60)
 - [Tracking eCommerce](http://piwik.org/docs/ecommerce-analytics/)
+- [Tracking goals](http://piwik.org/docs/tracking-goals-web-analytics/)
 
 TODO
 ====
-- [Tracking goals](http://piwik.org/docs/tracking-goals-web-analytics/)
 - [Tracking search](http://piwik.org/docs/site-search/)
 
 

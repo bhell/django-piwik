@@ -2,6 +2,7 @@ from django import template
 from piwik.models import Analytics
 from django.conf import settings
 from django.utils.translation import ugettext as _
+from decimal import Decimal
 
 register = template.Library()
 
@@ -100,4 +101,23 @@ def piwik_product_view():
     # OR
     # categories (list of categories)
     return context
+
+
+@register.inclusion_tag('tracking_goal_revenue.html')
+def piwik_goal_revenue(goalid, revenue):
+    """Include tracking code for goal with custom revenue.
+
+    Arguments:
+    goalid: Piwik goal ID (anything convertible to integer)
+    revenue: Value to be tracked (anything convertible to decimal number)"""
+    context = _get_code()
+    try:
+        goalid = int(goalid)
+        revenue = Decimal(revenue)
+    except:
+        return None
+    context['goalid'] = goalid
+    context['revenue'] = revenue
+    return context
+
 
