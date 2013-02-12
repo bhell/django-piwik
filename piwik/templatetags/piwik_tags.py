@@ -90,10 +90,17 @@ def piwik_add_to_cart():
 
 
 @register.inclusion_tag('tracking_product_view.html')
-def piwik_product_view():
+def piwik_product_view(product=None, categories=None, **kwargs):
     context = _get_code()
+    if product:
+        pass
+    elif categories and not product:
+        pass
+    else:
+        raise template.TemplateSyntaxError("%s tag requires either product or categories argument."
+                                           % (token.contents.split()[0]))
     # EITHER
-    # product (new product, optional)
+    # product (product)
     #   .sku
     #   .name
     #   .categories (list)
@@ -115,7 +122,8 @@ def piwik_goal_revenue(goalid, revenue):
         goalid = int(goalid)
         revenue = Decimal(revenue)
     except:
-        return None
+        raise template.TemplateSyntaxError("%s tag requires that the arguments goalid and revenue can be interpreted as integer and decimal number, respectively."
+                                           % (token.contents.split()[0]))
     context['goalid'] = goalid
     context['revenue'] = revenue
     return context
