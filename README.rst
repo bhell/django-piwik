@@ -1,8 +1,8 @@
 django-piwik - Application to add Piwik analytics to a Django site
 
-This app adds basic support for [Piwik web analytics](http://piwik.org/) to a Django web site:
+This app adds basic support for `Piwik web analytics`_ to a Django web site:
 
-- [Install Piwik](http://piwik.org/docs/installation/). Yes, you need PHP. But this is a Non-Evil PHP App™.
+- `Install Piwik`_. Yes, you need PHP. But this is a Non-Evil PHP App™.
 - Add a site in Piwik for the site to be tracked. Write down the number by which Piwik recognises the site.
 - Add ``piwik`` to ``INSTALLED_APPS``.
 - Sync database.
@@ -14,13 +14,19 @@ This app adds basic support for [Piwik web analytics](http://piwik.org/) to a Dj
 
 Doing
 =====
-- [Tracking 404 errors](http://piwik.org/faq/how-to/#faq_60)
-- [Tracking eCommerce](http://piwik.org/docs/ecommerce-analytics/)
-- [Tracking goals](http://piwik.org/docs/tracking-goals-web-analytics/)
+- `Tracking 404 errors`
+- `Tracking eCommerce`
+- `Tracking goals`
 
 TODO
 ====
-- [Tracking search](http://piwik.org/docs/site-search/)
-
+- `Tracking search`
 
 Have fun. BSD licensed.
+
+.. _`Piwik web analytics`: http://piwik.org/
+.. _`Install Piwik`: http://piwik.org/docs/installation/
+.. _`Tracking 404 errors`: http://piwik.org/faq/how-to/#faq_60
+.. _`Tracking eCommerce`: http://piwik.org/docs/ecommerce-analytics/
+.. _`Tracking goals`: http://piwik.org/docs/tracking-goals-web-analytics/
+.. _`Tracking search`: http://piwik.org/docs/site-search/
