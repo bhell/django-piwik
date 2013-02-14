@@ -14,13 +14,13 @@ This app adds basic support for `Piwik web analytics`_ to a Django web site:
 
 Doing
 =====
-- `Tracking 404 errors`
-- `Tracking eCommerce`
-- `Tracking goals`
+- `Tracking 404 errors`_
+- `Tracking eCommerce`_
+- `Tracking goals`_
 
 TODO
 ====
-- `Tracking search`
+- `Tracking search`_
 
 Have fun. BSD licensed.
 
