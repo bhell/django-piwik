@@ -15,7 +15,7 @@ def get_version():
 
 
 setup(
-    name="piwik",
+    name="django-piwik",
     version=get_version(),
     description="Application to add Piwik analytics to a Django site",
     long_description=(open(join(HERE, "README.rst")).read() + "\n\n" +
