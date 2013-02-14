@@ -1,4 +1,0 @@
-include README.rst
-include LICENSE.txt
-recursive-include documentation *.md *.py *.bat
-include documentation/Makefile
