@@ -1,0 +1,4 @@
+include README.rst LICENSE.txt
+recursive-include piwik *.py *.html
+include docs/Makefile
+recursive-include docs/src *

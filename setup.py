@@ -24,6 +24,7 @@ setup(
     author_email="b@bhell.net",
     url="https://github.com/bhell/django-piwik/",
     packages=find_packages(),
+    include_package_data=True,
     classifiers=[
         "Development Status :: 4 - Beta",
         "Environment :: Web Environment",
