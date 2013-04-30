@@ -18,6 +18,8 @@ except AttributeError:
 
 def _get_code():
     error = ""
+    pkbaseurl = ""
+    pkid = 0
     if not track:
         error = _("Piwik not enabled in DEBUG mode. Set PIWIK_IN_DEBUG = True if really needed.")
     else:
