@@ -11,6 +11,8 @@
     {% block ecommerce %}{% endblock %}
     piwikTracker.trackPageView();
     piwikTracker.enableLinkTracking();
+    {% for setting in pksettings %}
+    piwikTracker.{{setting.get_setting_display}}({{setting.value|safe}});{% endfor %}
   } catch( err ) {}
 </script>
 <noscript>

@@ -20,6 +20,7 @@ def _get_code():
     error = ""
     pkbaseurl = ""
     pkid = 0
+    pksettings = []
     if not track:
         error = _("Piwik not enabled in DEBUG mode. Set PIWIK_IN_DEBUG = True if really needed.")
     else:
@@ -27,6 +28,7 @@ def _get_code():
             _site = Analytics.objects.get(site=settings.SITE_ID)
             pkbaseurl = _site.pk_tracking_url
             pkid = _site.pk_site_id
+            pksettings = _site.settings_set.all()
             if pkbaseurl.endswith("/piwik.php"):
                 pkbaseurl = pkbaseurl.replace("/piwik.php", "/")
             elif pkbaseurl.endswith("/index.php"):
@@ -36,14 +38,15 @@ def _get_code():
             if pkbaseurl.startswith("http://"):
                 pkbaseurl = pkbaseurl.replace("http://", "")
             elif pkbaseurl.startswith("https://"):
-                pkbaseurl = pkbaseurl.replace("https://", "")
+                pkbiaseurl = pkbaseurl.replace("https://", "")
         except Analytics.DoesNotExist:
             error = _("No site found with SITE_ID %d." % settings.SITE_ID)
         except AttributeError:
             error = _("Piwik relies upon sites framework. Set up a corresponding site first to use Piwik.")
     return {'error': error,
             'pkbaseurl': pkbaseurl,
-            'pkid': pkid}
+            'pkid': pkid,
+            'pksettings': pksettings}
 
 
 @register.inclusion_tag('tracking_code.html')
