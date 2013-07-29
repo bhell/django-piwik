@@ -28,3 +28,20 @@ class Analytics(models.Model):
         c = Context({'pkbaseurl': self.pk_tracking_url,
                      'pkid': self.pk_site_id})
         return t.render(c)
+
+
+
+SETTINGS_CHOICES = (
+('sDC','setDownloadClasses'),
+('sLC','setLinkClasses'),
+('sDE','setDownloadExtensions'),
+('aDE','addDownloadExtensions'),
+('sIC','setIgnoreClasses'),
+)
+
+class Settings(models.Model):
+    analyticsSite = models.ForeignKey('Analytics')
+    setting  = models.CharField(max_length='3',
+                                choices=SETTINGS_CHOICES)
+    value    = models.CharField(max_length='255',
+                                help_text=_("Values must be specified as you would place them inside the braces of the according function call. eg for piwikTracker.<em>setting</em>(<em>value</em>). For addDownloadExtensions you would fill in e.g. <em>'exe|csv|txt'</em>, for setDownloadClasses you would fill in <em>['p',]</em>"))
